@@ -1,0 +1,41 @@
+ncssh
+4/5/14 - logging changes in rpexcept method
+3/24/14 - Minor changes to logging in rpexcept method
+2/28/14 - Change to compensate for a bug in some versions of Paramiko
+
+netconf
+3/18/2014 - reraised xml server error in _send
+
+nexusswitch
+5/10/14 - minor name and logging changes
+3/18/14 - fixed bugs in set_interface and set_portchannel, added exception handling to catch xml server errors
+3/3/14 - modified get_interface to modify an interface object if it already exists, rather than always creating a new
+object when called, corrected a bug in the port-channel interface parser, tweaked namespace handlers
+3/2/14 - added neighbor object and cdp parser, a cdp object is created and added to the interface container
+3/1/14 - Modified parsers to use parse_get_nsmap so that documents returned with incorrect namespaces can be
+parsed
+2/28/14 - added show_command_multiple to allow repeatedly running the same show command with different args
+2/21/14 - modified set_interface to allow multiple interfaces by providing a string that is standard nx-os
+interface notation. added set_portchannel. 
+2/20/14 - modifed set_vlan method to create multiple vlans specified in list, e.g. '2-4, 9, 10', interface methods
+modified to check existence of an interface only if it is an Ethernet - cannot assume prior existence of other kinds of
+interfaces
+2/18/14 - added set_interface method for configuration of interfaces
+2/17/14 - added vdc object, made it a container for the vlan and interface objects, but the APIs do not change for non-vdc
+platforms. added framework to most methods to accomodate multiple vdcs, added mode option to set_vlan method
+2/13/14 - added show_vlan_list, show_interface_list methods
+2/12/14 - created vlan object, vlans are stored in switch object as a dictionary of objects, like interfaces,implement vdc
+objects and get_vdcs method, will only be run on 7ks, vdcs will be stored as a dictionary of objects
+2/11/14 - added methods for getting and showing hostname, chassis id and os version and for saving the configuration
+1/27/14 - initial release
+
+vdcnetconf
+A subclass of NxosConnect that adds the ability to switch between VDCs
+
+nxosXMLFunctions
+3/3/14 - tweaked namespace function
+3/1/14 - modified parse_get_nsmap to return schema surrounded by braces
+2/28/14 - added parse_get_nsmap function
+2/12/14 - added parse_xml_heirarchy function
+2/11/14 - added find_element function
+1/27/14 - initial release
